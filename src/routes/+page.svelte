@@ -2,7 +2,7 @@
 	import { Details } from '$lib/components'
 	import { codes } from '$lib/utils'
 
-	let search = '404'
+	let search = ''
 	$: filteredCodes = codes.filter(
 		item =>
 			item.code.toLowerCase().includes(search.toLowerCase()) ||
@@ -37,9 +37,11 @@
 	{#if search.length > 0}
 		{#each filteredCodes as { code, message, detail, class: informationClass }}
 			<section class="outline outline-base-300 p-6 mb-10 shadow-xl">
-				<h2 class="text-3xl text-bold tracking-wide mt-1"><code>{code} {message}</code></h2>
+				<h2 class="text-3xl text-bold tracking-wide mt-1">
+					<code>{code} {message}</code>
+				</h2>
 				<p class="text-base text-primary mb-3">{informationClass}</p>
-				<p class='text-lg '>{detail}</p>
+				<p class="text-lg ">{detail}</p>
 			</section>
 		{/each}
 	{/if}
