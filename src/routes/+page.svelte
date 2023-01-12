@@ -17,21 +17,8 @@
 >
 	<h1 class="text-5xl mt-8 tracking-wide font-black text-primary">Search HTTP Codes</h1>
 	<p class="mb-8 tracking-wide font-black text-primary">Just search</p>
-	<Details
-		text="HTTP response status codes indicate whether a specific HTTP
-			request has been successfully completed. Responses are grouped
-			in five classes:"
-	>
-		<ol class="list-decimal px-16">
-			<li>Informational responses (100 - 199)</li>
-			<li>Successful responses (200 - 299)</li>
-			<li>Redirection messages (300 - 399)</li>
-			<li>Client error responses (400 - 499)</li>
-			<li>Server error responses (500 - 599)</li>
-		</ol>
-	</Details>
 
-	<div class="my-4">
+  <div class="my-4">
 		<label for="search" class="label">
 			<span class="label-text text-primary">
 				Search codes, message, detail or class
@@ -54,6 +41,22 @@
 			</section>
 		{/each}
 	{/if}
+  
+  <Details
+		text="HTTP response status codes indicate whether a specific HTTP
+			request has been successfully completed. Responses are grouped
+			in five classes:"
+	>
+		<ol class="list-decimal px-20">
+			<li>Informational responses (100 - 199)</li>
+			<li>Successful responses (200 - 299)</li>
+			<li>Redirection messages (300 - 399)</li>
+			<li>Client error responses (400 - 499)</li>
+			<li class='pb-5'>Server error responses (500 - 599)</li>
+		</ol>
+	</Details>
+
+	
 
 	<p class='mb-0'>
 		This list of codes is taken from the <a
