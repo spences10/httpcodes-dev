@@ -13,9 +13,10 @@
 </script>
 
 <div
-	class="form-control w-full max-w-3xl flex justify-center prose-lg"
+	class="form-control w-full max-w-3xl flex justify-center"
 >
-	<h1 class="mt-8 tracking-wide font-black">Search HTTP Codes</h1>
+	<h1 class="text-5xl mt-8 tracking-wide font-black text-primary">Search HTTP Codes</h1>
+	<p class="mb-8 tracking-wide font-black text-primary">Just search</p>
 	<Details
 		text="HTTP response status codes indicate whether a specific HTTP
 			request has been successfully completed. Responses are grouped
@@ -38,7 +39,7 @@
 		</label>
 		<input
 			name="search"
-			class="input input-lg input-bordered w-full max-w-3xl text-xl"
+			class="input input-lg input-bordered border-2 input-primary w-full max-w-3xl text-xl shadow-xl mb-6"
 			type="text"
 			placeholder="Search codes, message, detail or class"
 			bind:value={search}
@@ -46,7 +47,7 @@
 	</div>
 	{#if search.length > 0}
 		{#each filteredCodes as { code, message, detail, class: informationClass }}
-			<section class="outline p-6 mb-4">
+			<section class="outline outline-base-300 p-6 mb-10 shadow-xl">
         <h2 class='mt-1 mb-3'><code>{code} {message}</code></h2>
 				<p class="text-base text-primary">{informationClass}</p>
 				<p>{detail}</p>
@@ -54,7 +55,7 @@
 		{/each}
 	{/if}
 
-	<p>
+	<p class='mb-0'>
 		This list of codes is taken from the <a
 			href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
 			class="link link-primary"

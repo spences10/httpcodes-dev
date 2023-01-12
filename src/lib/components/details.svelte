@@ -33,7 +33,7 @@
 	}
 </script>
 
-<section class="mb-5 outline">
+<section class="mb-5 outline outline-base-300">
 	<button
 		on:click={() => {
 			open = !open
@@ -44,7 +44,7 @@
 				▶
 			</span>
       
-			<p class="p-1">{text}</p>
+			<p class="p-1 mb-2">{text}</p>
 		</div>
 	</button>
 	<div use:slide={open}>
