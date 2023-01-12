@@ -39,8 +39,11 @@
 			open = !open
 		}}
 	>
-		<div class="flex items-center">
-			<span class="ml-3">▶</span>
+		<div class="flex items-center text-left">
+			<span class="mx-3 transition" class:open>
+				▶
+			</span>
+      
 			<p class="p-1">{text}</p>
 		</div>
 	</button>
@@ -48,3 +51,10 @@
 		<slot />
 	</div>
 </section>
+
+<style>
+  .open {
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+</style>
