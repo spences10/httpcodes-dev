@@ -45,8 +45,12 @@
 		/>
 	</div>
 	{#if search.length > 0}
-		{#each filteredCodes as code}
-			<pre>{JSON.stringify(code, null, 2)}</pre>
+		{#each filteredCodes as { code, message, detail, class: informationClass }}
+			<section class="outline p-6 mb-4">
+        <h2 class='mt-1 mb-3'><code>{code} {message}</code></h2>
+				<p class="text-base text-primary">{informationClass}</p>
+				<p>{detail}</p>
+			</section>
 		{/each}
 	{/if}
 
