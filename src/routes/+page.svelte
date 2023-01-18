@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { page } from '$app/stores'
 	import { Details } from '$lib/components'
 	import { codes } from '$lib/utils'
+	import { Head } from 'svead'
 
 	let search = ''
 	$: filteredCodes = codes.filter(
@@ -10,7 +12,14 @@
 			item.detail.toLowerCase().includes(search.toLowerCase()) ||
 			item.class.toLowerCase().includes(search.toLowerCase())
 	)
+
+	let title = 'Search HTTP codes'
+	let description =
+		'Search HTTP codes for detail information from MDN.'
+	let url = $page.url.toString()
 </script>
+
+<Head {title} {description} {url} />
 
 <div class="form-control w-full max-w-3xl flex justify-center">
 	<h1 class="text-5xl mt-8 tracking-wide font-black text-primary">
