@@ -1,18 +1,19 @@
-const daisyui = require('daisyui')
-const typography = require('@tailwindcss/typography')
+const daisyui = require('daisyui');
+const typography = require('@tailwindcss/typography');
 
+/** @type {import('tailwindcss').Config}*/
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {},
+		extend: {}
 	},
 
 	plugins: [typography, daisyui],
 
-	daisyui: {
+		daisyui: {
 		themes: ['cyberpunk'],
 	},
-}
+};
 
-module.exports = config
+module.exports = config;

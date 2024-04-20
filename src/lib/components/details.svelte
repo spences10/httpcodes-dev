@@ -1,12 +1,21 @@
 <script lang="ts">
-	export let open = false
-	export let text = ''
+	import type { Snippet } from 'svelte';
+
+	let {
+		open = false,
+		text = '',
+		children,
+	}: {
+		open?: boolean;
+		text?: string;
+		children?: Snippet;
+	} = $props();
 
 	// custom slide animation
 	const slide = (node: HTMLDivElement, open: boolean) => {
-		let initialHeight = node.offsetHeight
-		node.style.height = open ? `auto` : '0px'
-		node.style.overflow = 'hidden'
+		let initialHeight = node.offsetHeight;
+		node.style.height = open ? `auto` : '0px';
+		node.style.overflow = 'hidden';
 
 		let animation = node.animate(
 			[{ height: '0px' }, { height: `${initialHeight}px` }],
@@ -16,45 +25,45 @@
 				fill: 'both',
 				direction: open ? 'reverse' : 'normal',
 			}
-		)
-		animation.pause()
+		);
+		animation.pause();
 		animation.onfinish = ({ currentTime }) => {
 			if (currentTime === 0) {
-				animation.reverse()
-				animation.pause()
+				animation.reverse();
+				animation.pause();
 			}
-			node.dispatchEvent(new CustomEvent('animationEnd'))
-		}
+			node.dispatchEvent(new CustomEvent('animationEnd'));
+		};
 		return {
 			update: () => {
-				animation.currentTime ? animation.reverse() : animation.play()
+				animation.currentTime
+					? animation.reverse()
+					: animation.play();
 			},
-		}
-	}
+		};
+	};
 </script>
 
 <section class="mb-5 outline outline-base-300">
 	<button
-		on:click={() => {
-			open = !open
+		onclick={() => {
+			open = !open;
 		}}
 	>
 		<div class="flex items-center text-left">
-			<span class="mx-3 transition" class:open>
-				▶
-			</span>
-      
-			<p class="p-1 mb-2">{text}</p>
+			<span class="mx-3 transition" class:open> ▶ </span>
+
+			<p class="mb-2 p-1">{text}</p>
 		</div>
 	</button>
 	<div use:slide={open}>
-		<slot />
+		{@render children?.()}
 	</div>
 </section>
 
 <style>
-  .open {
-    transform: rotate(90deg);
-    transform-origin: center;
-  }
+	.open {
+		transform: rotate(90deg);
+		transform-origin: center;
+	}
 </style>

@@ -1,16 +1,16 @@
 <script>
-	import { GitHub, Twitter, YouTube } from '$lib/icons'
-	import { ScottAvatar } from '$lib/images'
+	import { GitHub, Twitter, YouTube } from '$lib/icons';
+	import { ScottAvatar } from '$lib/images';
 </script>
 
 <footer
-	class="p-10 footer bg-primary text-primary-content footer-center"
+	class="footer footer-center bg-primary p-10 text-primary-content"
 >
 	<div>
 		<img
 			src={ScottAvatar}
 			alt="Scott avatar"
-			class="rounded-full h-20"
+			class="h-20 rounded-full"
 		/>
 		<p class="font-bold">
 			Made with <span role="img" aria-label="red heart">❤️</span> by
@@ -22,9 +22,6 @@
 			>
 				Scott Spence
 			</a>
-		</p>
-		<p>
-			Copyright © {`${new Date().getFullYear()}`} - All right reserved
 		</p>
 	</div>
 	<div>

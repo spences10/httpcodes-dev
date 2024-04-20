@@ -1,31 +1,40 @@
 <script lang="ts">
-	import { page } from '$app/stores'
-	import { Details } from '$lib/components'
-	import { codes } from '$lib/utils'
-	import { Head } from 'svead'
+	import { page } from '$app/stores';
+	import { Details } from '$lib/components';
+	import { codes } from '$lib/utils';
+	import { Head } from 'svead';
 
-	let search = ''
-	$: filteredCodes = codes.filter(
-		item =>
-			item.code.toLowerCase().includes(search.toLowerCase()) ||
-			item.message.toLowerCase().includes(search.toLowerCase()) ||
-			item.detail.toLowerCase().includes(search.toLowerCase()) ||
-			item.class.toLowerCase().includes(search.toLowerCase())
-	)
+	let search_query = $state('');
+	let filtered_codes = $derived.by(() => {
+		if (search_query.length === 0) return codes;
+		return codes.filter(
+			(item) =>
+				item.code
+					.toLowerCase()
+					.includes(search_query.toLowerCase()) ||
+				item.message
+					.toLowerCase()
+					.includes(search_query.toLowerCase()) ||
+				item.detail
+					.toLowerCase()
+					.includes(search_query.toLowerCase()) ||
+				item.class.toLowerCase().includes(search_query.toLowerCase())
+		);
+	});
 
-	let title = 'Search HTTP codes'
+	let title = 'Search HTTP codes';
 	let description =
-		'Search HTTP codes for detail information from MDN.'
-	let url = $page.url.toString()
+		'Search HTTP codes for detail information from MDN.';
+	let url = $page.url.toString();
 </script>
 
 <Head {title} {description} {url} />
 
-<div class="form-control w-full max-w-3xl flex justify-center">
-	<h1 class="text-5xl mt-8 tracking-wide font-black text-primary">
+<div class="form-control flex w-full max-w-3xl justify-center">
+	<h1 class="mt-8 text-5xl font-black tracking-wide text-primary">
 		Search HTTP Codes
 	</h1>
-	<p class="mb-8 tracking-wide font-black text-primary">
+	<p class="mb-8 font-black tracking-wide text-primary">
 		Just search
 	</p>
 
@@ -37,20 +46,20 @@
 		</label>
 		<input
 			name="search"
-			class="input input-lg input-bordered border-2 input-primary w-full max-w-3xl text-xl shadow-xl mb-6"
+			class="input input-lg input-bordered input-primary mb-6 w-full max-w-3xl border-2 text-xl shadow-xl"
 			type="text"
 			placeholder="Search codes, message, detail or class"
-			bind:value={search}
+			bind:value={search_query}
 		/>
 	</div>
-	{#if search.length > 0}
-		{#each filteredCodes as { code, message, detail, class: informationClass }}
-			<section class="outline outline-base-300 p-6 mb-10 shadow-xl">
-				<h2 class="text-3xl text-bold tracking-wide mt-1">
+	{#if search_query.length > 0}
+		{#each filtered_codes as { code, message, detail, class: informationClass }}
+			<section class="mb-10 p-6 shadow-xl outline outline-base-300">
+				<h2 class="text-bold mt-1 text-3xl tracking-wide">
 					<code>{code} {message}</code>
 				</h2>
-				<p class="text-base text-primary mb-3">{informationClass}</p>
-				<p class="text-lg ">{detail}</p>
+				<p class="mb-3 text-base text-primary">{informationClass}</p>
+				<p class="text-lg">{detail}</p>
 			</section>
 		{/each}
 	{/if}
