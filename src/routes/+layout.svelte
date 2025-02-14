@@ -5,9 +5,9 @@
 		PUBLIC_FATHOM_ID,
 		PUBLIC_FATHOM_URL,
 	} from '$env/static/public';
-	import * as Fathom from 'fathom-client';
-	import '../app.pcss';
 	import { Footer } from '$lib/components';
+	import * as Fathom from 'fathom-client';
+	import '../app.css';
 
 	let { children } = $props();
 
