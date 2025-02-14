@@ -18,7 +18,7 @@
 				item.detail
 					.toLowerCase()
 					.includes(search_query.toLowerCase()) ||
-				item.class.toLowerCase().includes(search_query.toLowerCase())
+				item.class.toLowerCase().includes(search_query.toLowerCase()),
 		);
 	});
 
@@ -30,35 +30,34 @@
 
 <Head {title} {description} {url} />
 
-<div class="form-control flex w-full max-w-3xl justify-center">
-	<h1 class="mt-8 text-5xl font-black tracking-wide text-primary">
+<div class="flex w-full max-w-3xl flex-col justify-center">
+	<h1 class="text-primary mt-8 text-5xl font-black tracking-wide">
 		Search HTTP Codes
 	</h1>
-	<p class="mb-8 font-black tracking-wide text-primary">
+	<p class="text-primary mb-8 font-black tracking-wide">
 		Just search
 	</p>
 
-	<div class="my-4">
-		<label for="search" class="label">
-			<span class="label-text text-primary">
-				Search codes, message, detail or class
-			</span>
+	<fieldset class="my-4">
+		<label class="label-text text-primary" for="search">
+			Search codes, message, detail or class
 		</label>
 		<input
+			id="search"
 			name="search"
-			class="input input-lg input-bordered input-primary mb-6 w-full max-w-3xl border-2 text-xl shadow-xl"
+			class="input input-xl input-bordered input-primary mb-6 w-full max-w-3xl border-2 text-xl shadow-xl"
 			type="text"
 			placeholder="Search codes, message, detail or class"
 			bind:value={search_query}
 		/>
-	</div>
+	</fieldset>
 	{#if search_query.length > 0}
 		{#each filtered_codes as { code, message, detail, class: informationClass }}
-			<section class="mb-10 p-6 shadow-xl outline outline-base-300">
+			<section class="outline-base-300 mb-10 p-6 shadow-xl outline">
 				<h2 class="text-bold mt-1 text-3xl tracking-wide">
 					<code>{code} {message}</code>
 				</h2>
-				<p class="mb-3 text-base text-primary">{informationClass}</p>
+				<p class="text-primary mb-3 text-base">{informationClass}</p>
 				<p class="text-lg">{detail}</p>
 			</section>
 		{/each}

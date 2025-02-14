@@ -4,7 +4,7 @@
 </script>
 
 <footer
-	class="footer footer-center bg-primary p-10 text-primary-content"
+	class="footer footer-center md:footer-horizontal bg-primary text-primary-content p-10"
 >
 	<div>
 		<img
@@ -15,7 +15,7 @@
 		<p class="font-bold">
 			Made with <span role="img" aria-label="red heart">❤️</span> by
 			<a
-				class="link transition hover:text-secondary"
+				class="link hover:text-secondary transition"
 				href="https://scottspence.com"
 				target="_blank"
 				rel="noopener noreferrer"
