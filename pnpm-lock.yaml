@@ -21,7 +21,7 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1(@sveltejs/kit@2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.32.1)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))
       '@sveltejs/kit':
-        specifier: ^2.21.0
+        specifier: ^2.21.1
         version: 2.21.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.32.1)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1)))(svelte@5.32.1)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.3
@@ -36,7 +36,7 @@ importers:
         specifier: ^6.6.3
         version: 6.6.3
       '@testing-library/svelte':
-        specifier: ^5.2.7
+        specifier: ^5.2.8
         version: 5.2.8(svelte@5.32.1)(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))(vitest@3.1.4(jiti@2.4.2)(jsdom@26.1.0)(lightningcss@1.30.1))
       daisyui:
         specifier: 5.0.35
@@ -48,8 +48,8 @@ importers:
         specifier: ^10.1.5
         version: 10.1.5(eslint@9.27.0(jiti@2.4.2))
       eslint-plugin-svelte:
-        specifier: ^3.8.0
-        version: 3.8.2(eslint@9.27.0(jiti@2.4.2))(svelte@5.32.1)
+        specifier: ^3.9.0
+        version: 3.9.0(eslint@9.27.0(jiti@2.4.2))(svelte@5.32.1)
       fathom-client:
         specifier: ^3.7.2
         version: 3.7.2
@@ -72,7 +72,7 @@ importers:
         specifier: ^0.0.4
         version: 0.0.4
       svelte:
-        specifier: ^5.30.1
+        specifier: ^5.32.1
         version: 5.32.1
       svelte-check:
         specifier: ^4.2.1
@@ -90,7 +90,7 @@ importers:
         specifier: ^6.3.5
         version: 6.3.5(jiti@2.4.2)(lightningcss@1.30.1)
       vitest:
-        specifier: ^3.1.3
+        specifier: ^3.1.4
         version: 3.1.4(jiti@2.4.2)(jsdom@26.1.0)(lightningcss@1.30.1)
 
 packages:
@@ -950,8 +950,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-svelte@3.8.2:
-    resolution: {integrity: sha512-TtepyI7nqWOPBqDXu/1kAFTeus9VuMByFGj6WIxNiByCknmR7b4w5DBoQ2qhj2RY5dMXyUJGHRp/pm/J2BSRxg==}
+  eslint-plugin-svelte@3.9.0:
+    resolution: {integrity: sha512-nvIUNyyPGbr5922Kd1p/jXe+FfNdVPXsxLyrrXpwfSbZZEFdAYva9O/gm2lObC/wXkQo/AUmQkAihfmNJYeCjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.1 || ^9.0.0
@@ -2620,7 +2620,7 @@ snapshots:
     dependencies:
       eslint: 9.27.0(jiti@2.4.2)
 
-  eslint-plugin-svelte@3.8.2(eslint@9.27.0(jiti@2.4.2))(svelte@5.32.1):
+  eslint-plugin-svelte@3.9.0(eslint@9.27.0(jiti@2.4.2))(svelte@5.32.1):
     dependencies:
       '@eslint-community/eslint-utils': 4.7.0(eslint@9.27.0(jiti@2.4.2))
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -3315,7 +3315,7 @@ snapshots:
   vite-node@3.1.4(jiti@2.4.2)(lightningcss@1.30.1):
     dependencies:
       cac: 6.7.14
-      debug: 4.4.0
+      debug: 4.4.1
       es-module-lexer: 1.7.0
       pathe: 2.0.3
       vite: 6.3.5(jiti@2.4.2)(lightningcss@1.30.1)
@@ -3360,7 +3360,7 @@ snapshots:
       '@vitest/spy': 3.1.4
       '@vitest/utils': 3.1.4
       chai: 5.2.0
-      debug: 4.4.0
+      debug: 4.4.1
       expect-type: 1.2.1
       magic-string: 0.30.17
       pathe: 2.0.3
