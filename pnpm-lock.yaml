@@ -76,7 +76,7 @@ importers:
         version: 5.35.6
       svelte-check:
         specifier: ^4.2.2
-        version: 4.2.2(picomatch@4.0.2)(svelte@5.35.6)(typescript@5.8.3)
+        version: 4.3.0(picomatch@4.0.2)(svelte@5.35.6)(typescript@5.8.3)
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
@@ -385,8 +385,11 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
-  '@jridgewell/trace-mapping@0.3.25':
-    resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+  '@jridgewell/sourcemap-codec@1.5.4':
+    resolution: {integrity: sha512-VT2+G1VQs/9oz078bLrYbecdZKs912zQlkelYpuf+SXF+QvZDYJlbx/LSx+meSAwdDFnF8FVXW92AVjjkVmgFw==}
+
+  '@jridgewell/trace-mapping@0.3.29':
+    resolution: {integrity: sha512-uw6guiW/gcAGPDhLmd77/6lW8QLeiV5RUTsAX46Db6oLhGaVj4lhnPwb184s1bkc8kdVg/+h988dro8GRDpmYQ==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1059,14 +1062,6 @@ packages:
   fathom-client@3.7.2:
     resolution: {integrity: sha512-sWtaNivhg7uwp/q1bUuIiNj4LeQZMEZ5NXXFFpZ8le4uDedAfQG84gPOdYehtVXbl+1yX2s8lmXZ2+IQ9a/xxA==}
 
-  fdir@6.4.4:
-    resolution: {integrity: sha512-1NZP+GK4GfuAv3PqKvxQRDMjdSRZjnkq7KfhlNrCNNlZ0ygQFpebfrnfnq/W7fpUnAv9aGWmY1zKx7FYL3gwhg==}
-    peerDependencies:
-      picomatch: ^3 || ^4
-    peerDependenciesMeta:
-      picomatch:
-        optional: true
-
   fdir@6.4.6:
     resolution: {integrity: sha512-hiFoqpyZcfNm1yc4u8oWCf9A2c4D3QjCrks3zmoVKVxpQRzmPNar1hUJcBG2RQHvEVGDN+Jm81ZheVLAQMK6+w==}
     peerDependencies:
@@ -1571,8 +1566,8 @@ packages:
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
-  readdirp@4.1.1:
-    resolution: {integrity: sha512-h80JrZu/MHUZCyHu5ciuoI0+WxsCxzxJTILn6Fs8rxSnFPh+UVHYfeIxK1nVGugMqkfC4vJcBOYbkfkwYK0+gw==}
+  readdirp@4.1.2:
+    resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
   redent@3.0.0:
@@ -1663,8 +1658,8 @@ packages:
   svead@0.0.4:
     resolution: {integrity: sha512-BrS8WAvrdUs6nbXyZN/kABjLBcPFqA1QBnbpJQiRzxfdA/8XchNJmiRmcPFTElw5NA5k7AG/eYWjj91V+8+Heg==}
 
-  svelte-check@4.2.2:
-    resolution: {integrity: sha512-1+31EOYZ7NKN0YDMKusav2hhEoA51GD9Ws6o//0SphMT0ve9mBTsTUEX7OmDMadUP3KjNHsSKtJrqdSaD8CrGQ==}
+  svelte-check@4.3.0:
+    resolution: {integrity: sha512-Iz8dFXzBNAM7XlEIsUjUGQhbEE+Pvv9odb9+0+ITTgFWZBGeJRRYqHUUglwe2EkLD5LIsQaAc4IUJyvtKuOO5w==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
     peerDependencies:
@@ -1927,7 +1922,7 @@ snapshots:
   '@ampproject/remapping@2.3.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
-      '@jridgewell/trace-mapping': 0.3.25
+      '@jridgewell/trace-mapping': 0.3.29
 
   '@asamuzakjp/css-color@2.8.3':
     dependencies:
@@ -2117,7 +2112,7 @@ snapshots:
     dependencies:
       '@jridgewell/set-array': 1.2.1
       '@jridgewell/sourcemap-codec': 1.5.0
-      '@jridgewell/trace-mapping': 0.3.25
+      '@jridgewell/trace-mapping': 0.3.29
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -2125,10 +2120,12 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
-  '@jridgewell/trace-mapping@0.3.25':
+  '@jridgewell/sourcemap-codec@1.5.4': {}
+
+  '@jridgewell/trace-mapping@0.3.29':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.4
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2590,7 +2587,7 @@ snapshots:
 
   chokidar@4.0.3:
     dependencies:
-      readdirp: 4.1.1
+      readdirp: 4.1.2
 
   chownr@3.0.0: {}
 
@@ -2815,10 +2812,6 @@ snapshots:
       reusify: 1.0.4
 
   fathom-client@3.7.2: {}
-
-  fdir@6.4.4(picomatch@4.0.2):
-    optionalDependencies:
-      picomatch: 4.0.2
 
   fdir@6.4.6(picomatch@4.0.2):
     optionalDependencies:
@@ -3190,7 +3183,7 @@ snapshots:
 
   react-is@17.0.2: {}
 
-  readdirp@4.1.1: {}
+  readdirp@4.1.2: {}
 
   redent@3.0.0:
     dependencies:
@@ -3285,11 +3278,11 @@ snapshots:
 
   svead@0.0.4: {}
 
-  svelte-check@4.2.2(picomatch@4.0.2)(svelte@5.35.6)(typescript@5.8.3):
+  svelte-check@4.3.0(picomatch@4.0.2)(svelte@5.35.6)(typescript@5.8.3):
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.25
+      '@jridgewell/trace-mapping': 0.3.29
       chokidar: 4.0.3
-      fdir: 6.4.4(picomatch@4.0.2)
+      fdir: 6.4.6(picomatch@4.0.2)
       picocolors: 1.1.1
       sade: 1.8.1
       svelte: 5.35.6
@@ -3346,7 +3339,7 @@ snapshots:
 
   tinyglobby@0.2.14:
     dependencies:
-      fdir: 6.4.4(picomatch@4.0.2)
+      fdir: 6.4.6(picomatch@4.0.2)
       picomatch: 4.0.2
 
   tinypool@1.1.1: {}
