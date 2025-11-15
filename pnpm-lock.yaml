@@ -39,8 +39,8 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8(svelte@5.43.5)(vite@7.2.2(jiti@2.6.1)(lightningcss@1.30.2))(vitest@3.2.4(jiti@2.6.1)(jsdom@27.1.0(postcss@8.5.6))(lightningcss@1.30.2))
       daisyui:
-        specifier: 5.4.7
-        version: 5.4.7
+        specifier: 5.5.5
+        version: 5.5.5
       eslint:
         specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
@@ -913,8 +913,8 @@ packages:
     resolution: {integrity: sha512-OytmFH+13/QXONJcC75QNdMtKpceNk3u8ThBjyyYjkEcy/ekBwR1mMAuNvi3gdBPW3N5TlCzQ0WZw8H0lN/bDw==}
     engines: {node: '>=20'}
 
-  daisyui@5.4.7:
-    resolution: {integrity: sha512-2wYO61vTPCXk7xEBgnzLZAYoE0xS5IRLu/GSq0vORpB+cTrtubdx69NnA0loc0exvCY1s2fYL4lGZtFHe2ohNQ==}
+  daisyui@5.5.5:
+    resolution: {integrity: sha512-ekvI93ZkWIJoCOtDl0D2QMxnWvTejk9V5nWBqRv+7t0xjiBXqAK5U6o6JE2RPvlIC3EqwNyUoIZSdHX9MZK3nw==}
 
   data-urls@6.0.0:
     resolution: {integrity: sha512-BnBS08aLUM+DKamupXs3w2tJJoqU+AkaE/+6vQxi/G/DPmIZFJJp9Dkb1kM03AZx8ADehDUZgsNxju3mPXZYIA==}
@@ -2646,7 +2646,7 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  daisyui@5.4.7: {}
+  daisyui@5.5.5: {}
 
   data-urls@6.0.0:
     dependencies:
