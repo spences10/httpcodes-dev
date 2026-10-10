@@ -2,6 +2,7 @@
 	"recommendations": [
 		"VoidZero.vite-plus-extension-pack",
 		"svelte.svelte-vscode",
-		"oxc.oxc-vscode"
+		"oxc.oxc-vscode",
+		"bradlc.vscode-tailwindcss"
 	]
 }

@@ -1,7 +1,6 @@
-import { join } from 'node:path';
-import stylex from '@stylexjs/unplugin';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
 import { coverageConfigDefaults, defineConfig } from 'vite-plus';
 import { playwright } from 'vite-plus/test/browser-playwright';
 
@@ -15,6 +14,7 @@ const ignore_patterns = [
 
 export default defineConfig({
 	plugins: [
+		tailwindcss(),
 		sveltekit({
 			adapter: adapter(),
 			compilerOptions: {
@@ -25,16 +25,6 @@ export default defineConfig({
 						: true,
 			},
 		}),
-		{
-			...stylex.vite({
-				useCSSLayers: true,
-				aliases: { '#lib/*': [join(process.cwd(), 'src/lib/*')] },
-			}),
-			// Run after Svelte has compiled components to JS.
-			enforce: undefined,
-			// The dev CSS middleware keeps Vitest's servers from closing.
-			...(process.env.VITEST ? { configureServer: undefined } : {}),
-		},
 	],
 	test: {
 		expect: { requireAssertions: true },
@@ -97,6 +87,9 @@ export default defineConfig({
 		trailingComma: 'all',
 		proseWrap: 'always',
 		svelte: true,
+		sortTailwindcss: {
+			stylesheet: './src/app.css',
+		},
 		ignorePatterns: [
 			...ignore_patterns,
 			'pnpm-lock.yaml',
