@@ -1,7 +1,15 @@
 @import 'tailwindcss';
 
-/* Plugin configurations */
-@plugin "@tailwindcss/typography";
-@plugin "daisyui" {
-	themes: cyberpunk --default;
+@theme {
+	--font-sans: 'Archivo Variable', 'Arial Black', sans-serif;
+
+	/* One colour per status class, 1xx to 5xx. */
+	--color-class-1: #8ecbff;
+	--color-class-2: #5fe08a;
+	--color-class-3: #ffd23f;
+	--color-class-4: #ff6f4d;
+	--color-class-5: #c08bff;
+
+	--shadow-hard: 8px 8px 0 #000;
+	--shadow-hard-sm: 4px 4px 0 #000;
 }
