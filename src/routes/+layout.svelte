@@ -1,11 +1,14 @@
 <script lang="ts">
 	import favicon from '#lib/assets/favicon.svg';
+	import CommandPalette from '#lib/components/command-palette.svelte';
 	import { MDN_URL, REPO_URL } from '#lib/site.js';
 	import '@fontsource-variable/archivo/standard.css';
 	import type { Snippet } from 'svelte';
 	import '../app.css';
 
 	let { children }: { children: Snippet } = $props();
+
+	let palette_open = $state(false);
 </script>
 
 <svelte:head>
@@ -24,12 +27,26 @@
 			>
 				HTTP Codes
 			</a>
-			<a
-				href="/which"
-				class="border-4 border-black bg-class-3 px-4 py-2 font-bold shadow-hard-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-black motion-safe:transition-transform"
-			>
-				Which code do I return?
-			</a>
+			<div class="flex flex-wrap items-center gap-3">
+				<button
+					type="button"
+					onclick={() => (palette_open = true)}
+					aria-keyshortcuts="Control+K Meta+K"
+					class="flex items-center gap-3 border-4 border-black bg-white px-4 py-2 font-bold shadow-hard-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-black motion-safe:transition-transform"
+				>
+					Search
+					<kbd
+						class="bg-black px-1.5 py-0.5 font-sans text-sm text-white"
+						>Ctrl K</kbd
+					>
+				</button>
+				<a
+					href="/which"
+					class="border-4 border-black bg-class-3 px-4 py-2 font-bold shadow-hard-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-black motion-safe:transition-transform"
+				>
+					Which code do I return?
+				</a>
+			</div>
 		</nav>
 	</header>
 
@@ -56,3 +73,5 @@
 		</p>
 	</footer>
 </div>
+
+<CommandPalette bind:open={palette_open} />

@@ -203,6 +203,9 @@ importers:
       playwright:
         specifier: 1.63.0
         version: 1.63.0
+      svead:
+        specifier: ^0.0.16
+        version: 0.0.16(svelte@5.57.2)
       svelte:
         specifier: ^5.57.2
         version: 5.57.2
@@ -2003,6 +2006,13 @@ packages:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
 
+  schema-dts-lib@1.1.0:
+    resolution: {integrity: sha512-Nx00FDPHDimSENMznVpADeYUJDsqlMiO9wcs2S+giggNTm5+ruNkM4m9z9qCk6xUJT+ThDM3NxxpwfHfFk1G+Q==}
+    engines: {node: '>=14.0.0'}
+
+  schema-dts@2.1.0:
+    resolution: {integrity: sha512-Y/NvOvuJUZwrm+EmNqJF3M+bRufERJs1h5GJPLilUuK5D5b53ttU+XZgIjEFaAVRToh+ib+cQawFmxKC5Jt9ow==}
+
   semver@7.8.5:
     resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
     engines: {node: '>=10'}
@@ -2031,6 +2041,11 @@ packages:
   supports-color@10.2.2:
     resolution: {integrity: sha512-SS+jx45GF1QjgEXQx4NJZV9ImqmO2NPz5FNsIHrsDjh2YsHnawpan7SNQ1o8NuhrbHZy9AZhIoCUiCeaW/C80g==}
     engines: {node: '>=18'}
+
+  svead@0.0.16:
+    resolution: {integrity: sha512-lEMqEK55hslRRJxIRRe8HvtK3gUJhyK+743KK9W7vThsmgcz7DJQQX9H470CyaqbCBTPbZ/mflgEiSEM0DLB5w==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0
 
   svelte-check@4.7.6:
     resolution: {integrity: sha512-t2scM//ZuVbSY/T2w6FSBw1v9s2NEmh/g+sy1lqtosW5ylBV5AF4wFb1Ts9Kf3MbfPDUDJDZ9L436YT0SPTdvw==}
@@ -3443,6 +3458,12 @@ snapshots:
     dependencies:
       mri: 1.2.0
 
+  schema-dts-lib@1.1.0: {}
+
+  schema-dts@2.1.0:
+    dependencies:
+      schema-dts-lib: 1.1.0
+
   semver@7.8.5: {}
 
   sharp@0.35.4(@types/node@24.19.1):
@@ -3489,6 +3510,11 @@ snapshots:
   std-env@4.3.0: {}
 
   supports-color@10.2.2: {}
+
+  svead@0.0.16(svelte@5.57.2):
+    dependencies:
+      schema-dts: 2.1.0
+      svelte: 5.57.2
 
   svelte-check@4.7.6(picomatch@4.0.7)(svelte@5.57.2)(typescript@6.0.3):
     dependencies:

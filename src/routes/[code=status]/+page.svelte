@@ -11,6 +11,8 @@
 	title="{item.code} {item.message}: {item.blunt}"
 	description="HTTP {item.code} {item.message}. {item.detail}"
 	path="/{item.code}"
+	image={String(item.code)}
+	image_alt="{item.code} {item.message}: {item.blunt}"
 />
 
 <Code {item} />

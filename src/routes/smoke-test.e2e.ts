@@ -19,6 +19,40 @@ test.describe('Smoke Tests', () => {
 		await expect(page).toHaveTitle(/418 I'm a teapot/);
 	});
 
+	test('finds a code from the command palette', async ({ page }) => {
+		await page.goto('/which');
+		const search = page.getByRole('combobox');
+		// The header button only works once the page has hydrated.
+		await expect(async () => {
+			await page.getByRole('button', { name: /Search/ }).click();
+			await expect(search).toBeVisible({ timeout: 500 });
+		}).toPass();
+		await page.keyboard.press('Escape');
+		await expect(search).toBeHidden();
+
+		await page.keyboard.press('Control+k');
+		await search.fill('teapot');
+		await page.keyboard.press('Enter');
+
+		await expect(page).toHaveURL('/418');
+		await expect(search).toBeHidden();
+	});
+
+	test('serves an Open Graph image for a code', async ({
+		page,
+		request,
+	}) => {
+		await page.goto('/404');
+		const image = await page
+			.locator('meta[property="og:image"]')
+			.getAttribute('content');
+
+		expect(image).toBe('https://httpcodes.dev/og/404.png');
+		const response = await request.get('/og/404.png');
+		expect(response.status()).toBe(200);
+		expect(response.headers()['content-type']).toBe('image/png');
+	});
+
 	test('walks the which-code questions', async ({ page }) => {
 		await page.goto('/which');
 
@@ -38,7 +72,9 @@ test.describe('Smoke Tests', () => {
 		const response = await page.goto('/nope');
 
 		expect(response?.status()).toBe(404);
-		await expect(page.getByText('Never heard of it.')).toBeVisible();
+		await expect(
+			page.getByRole('main').getByText('Never heard of it.'),
+		).toBeVisible();
 	});
 
 	test('the API really answers with the status code', async ({
