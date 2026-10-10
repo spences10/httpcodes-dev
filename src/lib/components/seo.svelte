@@ -5,13 +5,10 @@
 		title,
 		description,
 		path,
-		index = true,
 	}: {
 		title: string;
 		description: string;
-		/** Canonical path, without any design prefix. */
 		path: string;
-		index?: boolean;
 	} = $props();
 
 	let url = $derived(`${SITE_URL}${path}`);
@@ -21,9 +18,6 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={url} />
-	{#if !index}
-		<meta name="robots" content="noindex" />
-	{/if}
 	<meta property="og:site_name" content={SITE_NAME} />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={title} />

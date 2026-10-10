@@ -2,13 +2,14 @@ import { get_code } from '#lib/data/codes.js';
 import { describe, expect, test } from 'vite-plus/test';
 import { page } from 'vite-plus/test/browser';
 import { render } from 'vitest-browser-svelte';
-import { design_list } from './index.js';
+import Code from './code.svelte';
+import Home from './home.svelte';
+import Which from './which.svelte';
 
-// Every design has to pass the same behaviour, whatever it looks like.
-describe.each(design_list)('$name design', (design) => {
+describe('pages', () => {
 	describe('home', () => {
 		test('renders one main heading', async () => {
-			await render(design.Home, { base: design.base });
+			await render(Home);
 
 			await expect
 				.element(page.getByRole('heading', { level: 1 }))
@@ -16,7 +17,7 @@ describe.each(design_list)('$name design', (design) => {
 		});
 
 		test('links every class blunt line', async () => {
-			await render(design.Home, { base: design.base });
+			await render(Home);
 
 			await expect
 				.element(page.getByRole('link', { name: /4xx/ }).first())
@@ -26,16 +27,16 @@ describe.each(design_list)('$name design', (design) => {
 				.toBeVisible();
 		});
 
-		test('links codes to their page under the design prefix', async () => {
-			await render(design.Home, { base: design.base });
+		test('links codes to their page', async () => {
+			await render(Home);
 
 			await expect
 				.element(page.getByRole('link', { name: /404 Not Found/ }))
-				.toHaveAttribute('href', `${design.base}/404`);
+				.toHaveAttribute('href', `/404`);
 		});
 
 		test('filters codes as you type', async () => {
-			await render(design.Home, { base: design.base });
+			await render(Home);
 
 			await page.getByRole('searchbox').fill('teapot');
 
@@ -51,7 +52,7 @@ describe.each(design_list)('$name design', (design) => {
 		});
 
 		test('says what to try when nothing matches', async () => {
-			await render(design.Home, { base: design.base });
+			await render(Home);
 
 			await page.getByRole('searchbox').fill('zzzzzz');
 
@@ -64,7 +65,7 @@ describe.each(design_list)('$name design', (design) => {
 	describe('code page', () => {
 		test('shows the code, name, blunt line and proper meaning', async () => {
 			const item = get_code(404)!;
-			await render(design.Code, { base: design.base, item });
+			await render(Code, { item });
 
 			await expect
 				.element(
@@ -81,8 +82,7 @@ describe.each(design_list)('$name design', (design) => {
 		});
 
 		test('links to the spec', async () => {
-			await render(design.Code, {
-				base: design.base,
+			await render(Code, {
 				item: get_code(404)!,
 			});
 
@@ -95,8 +95,7 @@ describe.each(design_list)('$name design', (design) => {
 		});
 
 		test('links the codes it gets confused with', async () => {
-			await render(design.Code, {
-				base: design.base,
+			await render(Code, {
 				item: get_code(401)!,
 			});
 
@@ -104,12 +103,11 @@ describe.each(design_list)('$name design', (design) => {
 				.element(
 					page.getByRole('link', { name: /403 Forbidden/ }).first(),
 				)
-				.toHaveAttribute('href', `${design.base}/403`);
+				.toHaveAttribute('href', `/403`);
 		});
 
 		test('confirms when the curl command is copied', async () => {
-			await render(design.Code, {
-				base: design.base,
+			await render(Code, {
 				item: get_code(418)!,
 			});
 			let copied = '';
@@ -127,8 +125,7 @@ describe.each(design_list)('$name design', (design) => {
 		});
 
 		test('links to the neighbouring codes', async () => {
-			await render(design.Code, {
-				base: design.base,
+			await render(Code, {
 				item: get_code(404)!,
 			});
 			const nav = page.getByRole('navigation', {
@@ -137,16 +134,16 @@ describe.each(design_list)('$name design', (design) => {
 
 			await expect
 				.element(nav.getByRole('link', { name: /403/ }))
-				.toHaveAttribute('href', `${design.base}/403`);
+				.toHaveAttribute('href', `/403`);
 			await expect
 				.element(nav.getByRole('link', { name: /405/ }))
-				.toHaveAttribute('href', `${design.base}/405`);
+				.toHaveAttribute('href', `/405`);
 		});
 	});
 
 	describe('which code', () => {
 		test('walks the questions to a code', async () => {
-			await render(design.Which, { base: design.base });
+			await render(Which);
 
 			await page
 				.getByRole('button', { name: /The client got it wrong/ })
@@ -157,14 +154,14 @@ describe.each(design_list)('$name design', (design) => {
 
 			await expect
 				.element(page.getByRole('link', { name: /401/ }))
-				.toHaveAttribute('href', `${design.base}/401`);
+				.toHaveAttribute('href', `/401`);
 			await expect
 				.element(page.getByText('Who the fuck are you?'))
 				.toBeVisible();
 		});
 
 		test('goes back one question', async () => {
-			await render(design.Which, { base: design.base });
+			await render(Which);
 
 			await page.getByRole('button', { name: /It worked/ }).click();
 			await page
@@ -177,7 +174,7 @@ describe.each(design_list)('$name design', (design) => {
 		});
 
 		test('starts again from a result', async () => {
-			await render(design.Which, { base: design.base });
+			await render(Which);
 
 			await page
 				.getByRole('button', { name: /The server got it wrong/ })

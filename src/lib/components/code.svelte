@@ -9,9 +9,9 @@
 	import { curl_command, get_neighbours } from '#lib/data/groups.js';
 	import { get_spec } from '#lib/data/specs.js';
 	import { SITE_URL } from '#lib/site.js';
-	import { class_bg, focus_ring, press } from './colours.js';
+	import { class_bg, focus_ring, press } from './styles.js';
 
-	let { base, item }: { base: string; item: StatusCode } = $props();
+	let { item }: { item: StatusCode } = $props();
 
 	let status_class = $derived(get_class(item.class));
 	let spec = $derived(get_spec(item.code));
@@ -24,7 +24,7 @@
 	<header
 		class="{class_bg[
 			item.class
-		]} mt-10 border-4 border-black p-5 shadow-brut sm:p-8"
+		]} mt-10 border-4 border-black p-5 shadow-hard sm:p-8"
 	>
 		<h1 class="flex flex-wrap items-baseline gap-x-6">
 			<span
@@ -103,7 +103,7 @@
 			<CopyButton
 				text={curl}
 				label="Copy curl command"
-				class="mt-4 border-4 border-black bg-brut-3 px-4 py-2 font-bold {press} {focus_ring}"
+				class="mt-4 border-4 border-black bg-class-3 px-4 py-2 font-bold {press} {focus_ring}"
 			>
 				{#snippet children(copied: boolean)}
 					{copied ? 'Copied' : 'Copy command'}
@@ -135,7 +135,7 @@
 									>
 								{:else}
 									<a
-										href="{base}/{code}"
+										href="/{code}"
 										class="{class_bg[
 											other.class
 										]} border-4 border-black px-2 text-xl font-black {press} {focus_ring}"
@@ -162,7 +162,7 @@
 	>
 		{#if neighbours.previous}
 			<a
-				href="{base}/{neighbours.previous.code}"
+				href="/{neighbours.previous.code}"
 				class="border-4 border-black px-4 py-2 {press} {focus_ring}"
 			>
 				Previous: {neighbours.previous.code}
@@ -170,14 +170,14 @@
 			</a>
 		{/if}
 		<a
-			href="{base}/"
+			href="/"
 			class="border-4 border-black px-4 py-2 {press} {focus_ring}"
 		>
 			All codes
 		</a>
 		{#if neighbours.next}
 			<a
-				href="{base}/{neighbours.next.code}"
+				href="/{neighbours.next.code}"
 				class="border-4 border-black px-4 py-2 {press} {focus_ring}"
 			>
 				Next: {neighbours.next.code}

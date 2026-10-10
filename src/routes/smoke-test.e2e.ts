@@ -19,23 +19,6 @@ test.describe('Smoke Tests', () => {
 		await expect(page).toHaveTitle(/418 I'm a teapot/);
 	});
 
-	test('serves the other designs under their own prefix', async ({
-		page,
-	}) => {
-		for (const prefix of ['/rfc', '/signs']) {
-			await page.goto(`${prefix}/404`);
-
-			await expect(
-				page.getByRole('heading', { level: 1 }),
-			).toContainText('404');
-			await expect(
-				page
-					.getByRole('navigation', { name: 'Other codes' })
-					.getByRole('link', { name: /405/ }),
-			).toHaveAttribute('href', `${prefix}/405`);
-		}
-	});
-
 	test('walks the which-code questions', async ({ page }) => {
 		await page.goto('/which');
 

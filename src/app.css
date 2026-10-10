@@ -1,28 +1,15 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Brut */
-	--font-brut: 'Archivo Variable', 'Arial Black', sans-serif;
-	--color-brut-1: #8ecbff;
-	--color-brut-2: #5fe08a;
-	--color-brut-3: #ffd23f;
-	--color-brut-4: #ff6f4d;
-	--color-brut-5: #c08bff;
-	--shadow-brut: 8px 8px 0 #000;
-	--shadow-brut-sm: 4px 4px 0 #000;
+	--font-sans: 'Archivo Variable', 'Arial Black', sans-serif;
 
-	/* RFC */
-	--font-rfc: 'Courier Prime', 'Courier New', Courier, monospace;
-	--color-rfc-link: #0000ee;
-	--color-rfc-visited: #551a8b;
-	--color-rfc-dim: #595959;
+	/* One colour per status class, 1xx to 5xx. */
+	--color-class-1: #8ecbff;
+	--color-class-2: #5fe08a;
+	--color-class-3: #ffd23f;
+	--color-class-4: #ff6f4d;
+	--color-class-5: #c08bff;
 
-	/* Signs */
-	--font-signs:
-		'Overpass Variable', 'Helvetica Neue', Arial, sans-serif;
-	--color-signs-ground: #e9ebed;
-	--color-signs-info: #005eb8;
-	--color-signs-go: #00703c;
-	--color-signs-detour: #ffd200;
-	--color-signs-stop: #c8102e;
+	--shadow-hard: 8px 8px 0 #000;
+	--shadow-hard-sm: 4px 4px 0 #000;
 }

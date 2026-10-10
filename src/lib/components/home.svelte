@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { classes, search_codes } from '#lib/data/codes.js';
 	import { group_by_class } from '#lib/data/groups.js';
-	import { class_bg, class_hover_bg, focus_ring } from './colours.js';
-
-	let { base }: { base: string } = $props();
+	import { class_bg, class_hover_bg, focus_ring } from './styles.js';
 
 	let query = $state('');
 	let results = $derived(search_codes(query));
@@ -27,14 +25,14 @@
 				href="#class-{status_class.digit}"
 				class="{class_bg[
 					status_class.digit
-				]} flex flex-wrap items-baseline gap-x-6 border-4 border-black px-4 py-3 shadow-brut hover:translate-x-2 hover:translate-y-2 hover:shadow-none motion-safe:transition-transform sm:px-6 {focus_ring}"
+				]} flex flex-wrap items-baseline gap-x-6 border-4 border-black px-4 py-3 shadow-hard hover:translate-x-2 hover:translate-y-2 hover:shadow-none motion-safe:transition-transform sm:px-6 {focus_ring}"
 			>
 				<span
 					class="text-5xl font-black [font-stretch:125%] sm:text-7xl"
 					>{status_class.label}</span
 				>
 				<span
-					class="text-3xl font-black [font-stretch:125%] sm:text-6xl"
+					class="w-full text-3xl font-black [font-stretch:125%] sm:w-auto sm:text-6xl"
 					>{status_class.blunt}</span
 				>
 				<span class="ml-auto text-lg font-bold"
@@ -46,17 +44,17 @@
 </ul>
 
 <div class="sticky top-0 z-10 -mx-4 mt-12 bg-white px-4 py-3">
-	<label class="block text-lg font-bold" for="brut-search">
+	<label class="block text-lg font-bold" for="search">
 		Search by number, name or insult
 	</label>
 	<input
-		id="brut-search"
+		id="search"
 		type="search"
 		autocomplete="off"
 		spellcheck="false"
 		placeholder="404, teapot, redirect, 5xx"
 		bind:value={query}
-		class="mt-2 w-full border-4 border-black bg-white px-4 py-3 text-2xl font-bold shadow-brut-sm placeholder:text-neutral-500 focus:outline-4 focus:outline-offset-4 focus:outline-black"
+		class="mt-2 w-full border-4 border-black bg-white px-4 py-3 text-2xl font-bold shadow-hard-sm placeholder:text-neutral-500 focus:outline-4 focus:outline-offset-4 focus:outline-black"
 	/>
 </div>
 
@@ -95,7 +93,7 @@
 			{#each group.items as item (item.code)}
 				<li class="flex">
 					<a
-						href="{base}/{item.code}"
+						href="/{item.code}"
 						class="{class_hover_bg[
 							item.class
 						]} flex w-full flex-col border-4 border-black bg-white p-4 {focus_ring}"

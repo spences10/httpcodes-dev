@@ -1,5 +1,5 @@
 import { get_class, get_code } from '#lib/data/codes.js';
-import { json, type RequestHandler } from '@sveltejs/kit';
+import type { RequestHandler } from '@sveltejs/kit';
 
 export const prerender = false;
 
@@ -18,7 +18,7 @@ export const fallback: RequestHandler = ({ params, request }) => {
 		: undefined;
 
 	if (!item) {
-		return json(
+		return Response.json(
 			{
 				error: 'Never heard of it.',
 				hint: 'Ask for a real status code, such as /api/418.',
@@ -41,7 +41,7 @@ export const fallback: RequestHandler = ({ params, request }) => {
 
 	// 1xx responses are interim, so they cannot be sent as the final answer.
 	if (item.code < 200) {
-		return json(
+		return Response.json(
 			{
 				...body,
 				note: `${item.code} is an interim response and cannot be sent as a final one, so this is a 200 telling you about it.`,
@@ -57,5 +57,8 @@ export const fallback: RequestHandler = ({ params, request }) => {
 		});
 	}
 
-	return json(body, { status: item.code, headers: response_headers });
+	return Response.json(body, {
+		status: item.code,
+		headers: response_headers,
+	});
 };

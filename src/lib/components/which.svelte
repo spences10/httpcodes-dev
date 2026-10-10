@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { create_decision } from '#lib/decision.svelte.js';
-	import { class_bg, focus_ring, press } from './colours.js';
-
-	let { base }: { base: string } = $props();
+	import { class_bg, focus_ring, press } from './styles.js';
 
 	const decision = create_decision();
 </script>
@@ -37,7 +35,7 @@
 		<section
 			class="{class_bg[
 				item.class
-			]} border-4 border-black p-5 shadow-brut sm:p-8"
+			]} border-4 border-black p-5 shadow-hard sm:p-8"
 		>
 			<h2 class="text-xl font-bold">Return this</h2>
 			<p class="mt-2 flex flex-wrap items-baseline gap-x-5">
@@ -53,7 +51,7 @@
 				{item.blunt}
 			</p>
 			<a
-				href="{base}/{item.code}"
+				href="/{item.code}"
 				class="mt-6 inline-block border-4 border-black bg-white px-4 py-2 font-bold {press} {focus_ring}"
 			>
 				Read about {item.code}
@@ -69,7 +67,7 @@
 					<button
 						type="button"
 						onclick={() => decision.choose(option)}
-						class="w-full border-4 border-black bg-white px-4 py-3 text-left text-xl font-bold hover:bg-brut-3 {press} {focus_ring}"
+						class="w-full border-4 border-black bg-white px-4 py-3 text-left text-xl font-bold hover:bg-class-3 {press} {focus_ring}"
 					>
 						{option.label}
 					</button>
