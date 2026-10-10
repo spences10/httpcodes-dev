@@ -1,33 +1,20 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { page } from '$app/stores';
-	import {
-		PUBLIC_FATHOM_ID,
-		PUBLIC_FATHOM_URL,
-	} from '$env/static/public';
-	import { Footer } from '$lib/components';
-	import * as Fathom from 'fathom-client';
+	import favicon from '#lib/assets/favicon.svg';
 	import '../app.css';
 
 	let { children } = $props();
 
-	$effect(() => {
-		if (browser) {
-			Fathom.load(PUBLIC_FATHOM_ID, {
-				url: PUBLIC_FATHOM_URL,
-			});
-		}
-	});
-
-	// Track pageview on route change
-	$effect(() => {
-		$page.url.pathname, browser && Fathom.trackPageview();
-	});
+	if (import.meta.env.DEV) {
+		// @ts-expect-error virtual modules are not typed
+		$effect(() => void import('virtual:stylex:runtime'));
+	}
 </script>
 
-<div class="flex min-h-screen flex-col overflow-x-hidden">
-	<main class="container mx-auto mb-20 max-w-3xl flex-grow px-4">
-		{@render children()}
-	</main>
-	<Footer />
-</div>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	{#if import.meta.env.DEV}
+		<link rel="stylesheet" href="/virtual:stylex.css" />
+	{/if}
+</svelte:head>
+
+{@render children()}

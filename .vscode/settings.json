@@ -1,6 +1,9 @@
 {
-	"git.enableSmartCommit": true,
-	"git.postCommitCommand": "sync",
-	"css.validate": false,
-	"cSpell.words": ["daisyui", "svead"]
+	"editor.defaultFormatter": "oxc.oxc-vscode",
+	"editor.formatOnSave": true,
+	"oxc.fmt.configPath": "./vite.config.ts",
+	"[markdown]": {
+		"editor.defaultFormatter": "oxc.oxc-vscode",
+		"editor.formatOnSave": true
+	}
 }

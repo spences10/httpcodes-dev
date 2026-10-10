@@ -1,7 +1,9 @@
-@import 'tailwindcss';
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
-/* Plugin configurations */
-@plugin "@tailwindcss/typography";
-@plugin "daisyui" {
-	themes: cyberpunk --default;
+body {
+	margin: 0;
 }
