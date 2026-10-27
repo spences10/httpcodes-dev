@@ -114,7 +114,12 @@
 <dialog
 	bind:this={dialog}
 	aria-label="Search status codes"
-	onclose={() => (open = false)}
+	// Escape fires cancel at once but close later, after Ctrl+K may have
+	// reopened the dialog. Close on cancel, ignore a stale close.
+	oncancel={() => (open = false)}
+	onclose={() => {
+		if (!dialog?.open) open = false;
+	}}
 	onclick={(event) => {
 		// A click on the backdrop lands on the dialog element itself.
 		if (event.target === dialog) open = false;
